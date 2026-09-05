@@ -10,8 +10,9 @@ public:
         }
 
         for (int i = 0; i < n; i++){
-            if (numMap.count(target - nums[i]) && numMap[target - nums[i]] != i){
-                return {i, numMap[target - nums[i]]};
+            int comp = target - nums[i];
+            if (numMap.count(comp) && numMap[comp] != i){
+                return {i, numMap[comp]};
             }
         }
 
