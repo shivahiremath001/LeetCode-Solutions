@@ -4,6 +4,7 @@ public:
     void rotate(vector<int>& nums, int k) {
         unsigned int n = nums.size();
         k = k % n;
+        if (k == 0) return;
         reverse(nums.begin(), nums.end() - k);
         reverse(begin(nums) + (n - k), end(nums));
         reverse(nums.begin(), nums.end());
