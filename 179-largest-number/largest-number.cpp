@@ -2,7 +2,9 @@ class Solution {
 public:
     string largestNumber(vector<int>& nums) {
         sort(nums.begin(), nums.end(), [] (int a, int b){
-            return (to_string(a) + to_string(b)) > (to_string(b) + to_string(a)) ;
+            string str_a = to_string(a);
+            string str_b = to_string(b);
+            return (str_a + str_b) > (str_b + str_a);
         });
 
         std::string largestNum = "";
