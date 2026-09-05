@@ -5,12 +5,13 @@ public:
         int s_largest = INT_MIN;
         for (char i: s){
             if (isdigit(i)){
-                if (largest < i - '0') {
+                int n = i - '0';
+                if (largest < n) {
                     s_largest = largest;
-                    largest = i - '0';
+                    largest = n;
                 }
-                else if (s_largest < i - '0' && largest != i - '0'){
-                    s_largest = i - '0';
+                else if (s_largest < n && largest != n){
+                    s_largest = n;
                 }
             }
         }
