@@ -1,43 +1,74 @@
 class Solution {
 public:
+    static bool comp(int a, int b){
+        string str_a = to_string(a);
+        string str_b = to_string(b);
+
+        return (str_a + str_b) > (str_b + str_a);
+    }
     string largestNumber(vector<int>& nums) {
-        vector<string> arr;
-        arr.reserve(nums.size()); // micro-optimization: avoid repeated reallocations
+        sort(nums.begin(), nums.end(), Solution::comp);
 
-        // 1) Convert numbers to strings once.
-        for (int x : nums) {
-            arr.push_back(to_string(x));
+        std::string largestNum = "";
+        for (auto it: nums){
+            largestNum.append(to_string(it));
         }
-
-        // 2) Custom sort rule (core of the problem):
-        //    For two strings a and b, we compare a+b vs b+a.
-        //    Example:
-        //      a = "9", b = "34"
-        //      a+b = "934", b+a = "349"
-        //      Since "934" > "349", "9" must come before "34".
-        //
-        //    Why this works:
-        //    We are deciding local order of every pair so the final concatenation
-        //    is globally maximum.
-        sort(arr.begin(), arr.end(),
-             [](const string& a, const string& b) {
-                 // If placing a before b creates a larger combined value,
-                 // then a should rank earlier
-                 return a + b > b + a;
-             });
-
-        // 3) If first string is "0", then all values are zero (e.g., [0,0]).
-        if (arr[0] == "0") return "0";
-
-        // 4) Build final answer efficiently.
-        //    Optional micro-optimization: pre-compute total length for reserve.
-        size_t totalLen = 0;
-        for (const string& s : arr) totalLen += s.size();
-
-        string ans;
-        ans.reserve(totalLen);
-        for (const string& s : arr) ans += s;
-
-        return ans;
+    
+        if (largestNum[0] == '0') return "0";
+        else return largestNum;
     }
 };
+
+
+// class Solution {
+// public:
+//     static bool comp(int a, int b){
+//         int _a = a, _b = b;
+//         int x, y;
+//         while ( a > 0){
+//             x = a % 10;
+//             a = a / 10;
+//         }
+//         while ( b > 0){
+//             y = b % 10;
+//             b = b / 10;
+//         }
+//         if ( x == y) return _a > _b? x > y: x < y; 
+//         return x > y;
+//     }
+//     string largestNumber(vector<int>& nums) {
+        
+//         sort(nums.begin(), nums.end(), Solution::comp);
+//         std::string largestNum = "";
+//         for (auto it: nums){
+//             largestNum.append(to_string(it));
+//         }
+//         return largestNum;
+//     }
+// };
+
+// class Solution {
+// public:
+//     string largestNumber(vector<int>& nums) {
+//         vector<int> arr;
+//         int i = 0;
+//         for (auto it: nums){
+//             if (it % 10 == 0){
+//                 arr.push_back(it);
+//             }
+//             else {
+//                 while (it != 0){
+//                     arr[it % 10];
+//                     it = it / 10;
+//                 }
+//             }
+//         }
+//         sort(arr.begin(), arr.end());
+//         std::string largestNum = "";
+//         for (auto it: arr){
+//             char temp = (char) it;
+//             largestNum.append(temp);
+//         }
+//         return largestNum;
+//     }
+// };
