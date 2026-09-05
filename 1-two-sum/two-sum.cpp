@@ -1,15 +1,21 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> numMap;
         int n = nums.size();
-        vector<int> soln;
+
+        // Build the hash table
+        for (int i = 0; i < n; i++) {
+            numMap[nums[i]] = i;
+        }
+
         for (int i = 0; i < n; i++){
-            for (int j = i + 1; j < n; j++){
-                if ( nums[i] + nums[j] == target){
-                    return {i, j};
-                }
+            int comp = target - nums[i];
+            if (numMap.count(comp) && numMap[comp] != i){
+                return {i, numMap[comp]};
             }
         }
-        return {-1, -1};
+
+        return {}; 
     }
 };
