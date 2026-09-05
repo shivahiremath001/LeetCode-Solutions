@@ -12,7 +12,6 @@ public:
                 else if (s_largest < i - '0' && largest != i - '0'){
                     s_largest = i - '0';
                 }
-                cout << "l: " << largest << "  |  sl: " << s_largest << endl;
             }
         }
 
