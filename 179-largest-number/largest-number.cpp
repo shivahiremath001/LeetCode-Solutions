@@ -1,13 +1,9 @@
 class Solution {
 public:
-    static bool comp(int a, int b){
-        string str_a = to_string(a);
-        string str_b = to_string(b);
-
-        return (str_a + str_b) > (str_b + str_a);
-    }
     string largestNumber(vector<int>& nums) {
-        sort(nums.begin(), nums.end(), Solution::comp);
+        sort(nums.begin(), nums.end(), [] (int a, int b){
+            return (to_string(a) + to_string(b)) > (to_string(b) + to_string(a)) ;
+        });
 
         std::string largestNum = "";
         for (auto it: nums){
