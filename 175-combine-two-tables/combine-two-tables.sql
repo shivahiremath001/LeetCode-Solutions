@@ -4,4 +4,4 @@ select Person.firstName,
        Address.city,
        Address.state
 from Person
-left join Address using (personId);
+left join Address on Address.personId = Person.personID;
