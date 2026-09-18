@@ -2,12 +2,12 @@ class Solution {
 public:
     bool isAnagram(string s, string t) {
         if (s.size() != t.size()) return false; 
-        int arr[256] = {0};
+        int arr[26] = {0};
         for (char ch: s){
-            arr[ch]++;
+            arr[ch - 'a']++;
         }
         for (char ch: t){
-            if (--arr[ch] < 0) return false;
+            if (--arr[ch - 'a'] < 0) return false;
         }
         return true;
     }
