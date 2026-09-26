@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
         int n = nums.size();
-        map<int, int> mpp;
+        unordered_map<int, int> mpp;
         for (int i: nums) {
             if (!mpp.count(i)) mpp[i] = 1;
             else mpp[i]++;
