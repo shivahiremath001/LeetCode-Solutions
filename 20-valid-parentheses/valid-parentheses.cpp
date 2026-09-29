@@ -2,9 +2,9 @@ class Solution {
 public:
     char corr(char x){
         switch(x){
-            case '(': return ')'; break;
-            case '{': return '}'; break;
-            case '[': return ']'; break;
+            case '(': return ')';
+            case '{': return '}';
+            case '[': return ']';
         }
         return ']';
     }
@@ -16,7 +16,6 @@ public:
             else if (!st.empty() && i == corr(st.top())) st.pop();
             else return false;
         }
-        if (st.empty()) return true;
-        else return false;
+        return st.empty();
     }
 };
