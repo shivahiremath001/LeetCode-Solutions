@@ -12,8 +12,10 @@ public:
     bool isValid(string s) {
         stack<char> st;
         for (char i: s){
-            if (i == '(' || i == '[' || i == '{') st.push(i);
-            else if (!st.empty() && i == corr(st.top())) st.pop();
+            if (i == '(') st.push(')');
+            else if (i == '[') st.push(']');
+            else if (i == '{') st.push('}');
+            else if (!st.empty() && i == st.top()) st.pop();
             else return false;
         }
         return st.empty();
