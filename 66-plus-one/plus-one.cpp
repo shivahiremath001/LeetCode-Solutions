@@ -7,21 +7,17 @@ public:
         for (int i = n - 1; i >= 0; i--) {
             if (digits[i] + 1 <= 9 && i == n - 1) {
                 digits[i] += 1 + crry;
-                flag = 1;
                 break;
-            }
-            else if (digits[i] + 1 <= 9){
+            } else if (digits[i] + 1 <= 9){
                 digits[i] += crry;
-                flag = 1;
+                crry--;
                 break;
-            }
-            else {
+            } else {
                 digits[i] = 0;
                 crry = 1;
             }
         }
-    
-        if (flag) return digits;
+        if (!crry) return digits;
         digits.insert(digits.begin(), 1);
         return digits;
     }
