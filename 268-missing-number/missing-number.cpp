@@ -1,18 +1,12 @@
 class Solution {
 public:
-    int missingNumber(vector<int>& nums) {
+    int missingNumber(std::vector<int>& nums) {
+        // Intuition: after sorting, nums[i] should equal i
         int n = nums.size();
-        int sum1 = 0;
-        int sum2 = 0;
-
-        for (int i = 0; i <= n; i++) {
-            sum1 += i;
-        }
-
+        std::sort(nums.begin(), nums.end());
         for (int i = 0; i < n; i++) {
-            sum2 += nums[i];
+            if (nums[i] != i) return i;
         }
-
-        return sum1 - sum2;
+        return n;
     }
 };
