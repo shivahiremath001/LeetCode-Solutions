@@ -5,7 +5,7 @@ public:
         int sum1 = 0;
         int sum2 = 0;
 
-        for (int i = *min_element(nums.begin(), nums.end()); i <= n; i++) {
+        for (int i = 0; i <= n; i++) {
             sum1 += i;
         }
 
