@@ -27,8 +27,7 @@ public:
             if (max == INT_MIN) return -1;
             return max;
         }
-        for (auto i: mpp) cout << i.first << ":" << i.second << endl;
-        cout << nums[0] << "&" << nums[n-1];
+        
         if (mpp[nums[0]] == mpp[nums[n-1]] && mpp[nums[0]] == 1){
             cout << "hi";
             return nums[0] > nums[n-1]? nums[0]: nums[n-1];
