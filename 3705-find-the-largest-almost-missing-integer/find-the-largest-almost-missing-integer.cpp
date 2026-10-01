@@ -27,8 +27,7 @@ public:
             if (max == INT_MIN) return -1;
             return max;
         }
-        for (auto i: mpp) cout << i.first << ":" << i.second << endl;
-        vector<int> arr;
+
         int min = INT_MAX;
 
         for (auto i: mpp) {
