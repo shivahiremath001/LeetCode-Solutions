@@ -3,11 +3,8 @@ public:
     int largestInteger(vector<int>& nums, int k) {
         int n = nums.size();
         if (k == n) {
-            int max = INT_MIN;
-            for (int i: nums) {
-                if (max < i) max = i;
-            }
-            return max;
+            
+            return *max_element(nums.begin(), nums.end());
         } 
 
         int subArr = n - k + 1;
