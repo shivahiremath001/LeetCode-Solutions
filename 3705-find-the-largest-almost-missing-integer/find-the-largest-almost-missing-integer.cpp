@@ -11,7 +11,7 @@ public:
         } 
 
         int subArr = n - k + 1;
-        map<int, int> mpp;
+        unordered_map<int, int> mpp;
 
         for (int i = 0; i < subArr; i++) {
             for (int j = i; j < i + k; j++) {
