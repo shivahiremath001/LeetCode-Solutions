@@ -3,7 +3,6 @@ public:
     int largestInteger(vector<int>& nums, int k) {
         int n = nums.size();
         if (k == n) {
-            
             return *max_element(nums.begin(), nums.end());
         } 
 
