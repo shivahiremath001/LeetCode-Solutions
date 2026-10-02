@@ -8,8 +8,7 @@ public:
             if (i != 0) product *= i;
             else {
                 if (ZeroCnt == 1) {
-                    vector<int> res(n, 0);
-                    return res;
+                    return vector<int>(n, 0);
                 }   
                 ZeroCnt++;
             }
@@ -23,7 +22,7 @@ public:
         }
 
         for (int i = 0; i < n; i++) {
-            if (nums[i]) nums[i] = product / nums[i];
+            nums[i] = product / nums[i];
         }
 
         return nums;
