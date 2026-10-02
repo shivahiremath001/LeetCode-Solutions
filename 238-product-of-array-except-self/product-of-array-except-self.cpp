@@ -20,7 +20,7 @@ public:
             }
             return nums;
         }
-
+        
         for (int i = 0; i < n; i++) {
             nums[i] = product / nums[i];
         }
