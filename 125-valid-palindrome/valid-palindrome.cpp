@@ -13,9 +13,6 @@ public:
                 j++;
             }
         }
-
-        cout << s << endl;
-
         j--;
         
         for (int i = 0; i < j; i++) {
