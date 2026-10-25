@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int reverse(int x) {
+        if (!x) return 0;
+        bool isNegative = 0;
+        if (x < 0) {
+            isNegative = 1;
+            if (x == INT_MIN) return 0;
+        }
+
+        x = abs(x);
+        unsigned int rev = 0;
+
+        while (x != 0) {
+            int tmp = x % 10;
+            if (rev > INT_MAX / 10) return 0;
+            rev = (rev * 10) + tmp;
+            
+            x = x / 10;
+        }
+        
+        return (isNegative)? -rev: rev;
+        
+    }
+};
