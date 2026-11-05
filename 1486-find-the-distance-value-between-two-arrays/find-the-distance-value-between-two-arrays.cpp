@@ -7,6 +7,7 @@ public:
             for (int j = 0; j < arr2.size(); j++) {
                 if (abs(arr1[i] - arr2[j]) <= d) {
                     flag = 1;
+                    break;
                 }
             }
             if (!flag) disVal++;
