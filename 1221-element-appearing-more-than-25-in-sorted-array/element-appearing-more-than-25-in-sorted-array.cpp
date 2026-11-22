@@ -2,10 +2,7 @@ class Solution {
 public:
     int findSpecialInteger(vector<int>& arr) {
         unordered_map<int, int> mpp;
-        for (int i: arr) {
-            if (mpp.contains(i)) mpp[i]++;
-            else mpp[i]++;
-        }
+        for (int i: arr) mpp[i]++;
 
         int great = 0;
         int val = 0;
