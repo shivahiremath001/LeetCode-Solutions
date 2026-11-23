@@ -5,9 +5,11 @@ public:
         int tmp = 0;
         for (int i = 0; i < nums.size(); i++) {
             if (nums[i]) tmp++;
-            else tmp = 0;
-            if (max < tmp) max = tmp;
+            else {
+                if (max < tmp) max = tmp;
+                tmp = 0;
+            }
         }
-        return max;
+        return max<tmp? tmp: max;
     }
 };
